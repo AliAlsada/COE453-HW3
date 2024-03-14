@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: task1
+  description: API Walk through.
+  version: 1.0.0
+
+host: myapi.apigateway.coe453-hw3.cloud.goog
+basePath: /
+schemes:
+  - https
+  - http
+
+paths:
+  /add:
+    post:
+      operationId: postAdd
+      summary: add two number
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3.cloudfunctions.net/add
+  /sub:
+    post:
+      operationId: postSub
+      summary: sub two number
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3.cloudfunctions.net/sub
+  /div:
+    post:
+      operationId: postDiv
+      summary: div two number
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3.cloudfunctions.net/div
+  /mul:
+    post:
+      operationId: postMul
+      summary: mul two number
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      x-google-backend:
+        address: https://us-central1-coe453-hw3.cloudfunctions.net/mul
