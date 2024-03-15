@@ -7,22 +7,19 @@ const TAG = "1.0"
 functions.forEach((functionName) => {
 
     const dockerBuild = `docker build -t ${functionName}:${TAG} task2/containers/${functionName}`
-    const run = `docker run -d ${functionName}:${TAG}`
+    const run = `docker run -d -p 3000:8080 ${functionName}:${TAG}`
 
-    const tag = `docker tag ${functionName} ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${functionName}:${TAG}`
-    const push = `docker push ${functionName}`
+    const tag = `docker tag ${functionName}:${TAG} ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${functionName}:${TAG}`
+    const push = `docker push ${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${functionName}:${TAG}`;
 
-    const deploy = `gcloud run deploy ${functionName} 
-        --image=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${functionName}:${TAG} 
-        --platform=managed 
-        --region=${REGION}`
+    const deploy = `gcloud run deploy ${functionName} --image=${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${functionName}:${TAG} --platform=managed --region=${REGION}`
+    
 
-
-    // console.log(dockerBuild);
+    console.log(dockerBuild);
     console.log(run);
-    // console.log(tag);
-    // console.log(push);
-    // console.log(deploy, "\n");
+    console.log(tag);
+    console.log(push);
+    console.log(deploy, "\n");
 });
 
 // const CONFIG_NAME = "task02";
