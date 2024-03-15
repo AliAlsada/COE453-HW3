@@ -22,14 +22,14 @@ functions.forEach((functionName) => {
     console.log(deploy, "\n");
 });
 
-// const CONFIG_NAME = "task02";
-// const BELONG_NAME = "task02";
-// const YAML_FILE_PATH = "task02/gateway/task02.yaml";
-// const PROJECT_ID = "coe453-hw3";
-// const GATEWAY_NAME = "task2";
-// const REGION = "us-central1";
-// const apiCommand = `gcloud api-gateway api-configs create ${CONFIG_NAME} --api=${BELONG_NAME} --openapi-spec=${YAML_FILE_PATH} --project=${PROJECT_ID}`;
-// const gatewayCommand = `gcloud api-gateway gateways create ${GATEWAY_NAME} --api=${BELONG_NAME} --api-config=${CONFIG_NAME} --location=${REGION} --project=${PROJECT_ID}`;
+const GATEWAY_NAME = "gateway2";
+const CONFIG_NAME = "task2";
+const BELONG_NAME = "task2";
+const MAIL = "--backend-auth-service-account=coe453-hw3@appspot.gserviceaccount.com"
+const YAML_FILE_PATH = "task2/task2.yaml";
 
-// console.log(apiCommand, "\n");
-// console.log(gatewayCommand, "\n");
+const api = `gcloud api-gateway api-configs create ${CONFIG_NAME} --api=${BELONG_NAME} --openapi-spec=${YAML_FILE_PATH} --project=${PROJECT_ID}`;
+const gateway = `gcloud api-gateway gateways create ${GATEWAY_NAME} --api=${BELONG_NAME} --api-config=${CONFIG_NAME} --location=${REGION} --project=${PROJECT_ID}`;
+
+console.log(api, "\n");
+console.log(gateway, "\n");

@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post('/', (req, res) => {
     const {X, Y} = req.body;
-    const result = Number(X) + Number(Y)
+    const result = Number(X) + Number(Y);
     res.send({ "x": X, "y": Y, "result": result });  
 });
 
